@@ -1,0 +1,194 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="./bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+        <link rel="stylesheet" href="./css/main.css">
+        
+        
+    </head>
+    <body>
+        <div class="loader-wraper" ng-hide="true">
+            <div class="loader"></div>
+        </div>
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">STOCK MARKET</a>
+                </div>
+                
+              </div>
+            </nav>
+        </header>
+        <div class="container main-content" ng-controller="mainCtrl">
+            <div class="row date-picker-wrapper" >
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <p class="input-group">
+                      <input type="text" class="form-control" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="selectedDate" placeholder="Select the date" is-open="datepiker.opened" />
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="toggleDatepicker()"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                    </p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-2">
+                    <button class="btn btn-default btn-md btn-block" ng-click="getData( $event )"> Get Data </button>
+                </div>
+            </div>
+            <uib-tabset>
+                <uib-tab heading="Tab1" select="tabSelected( 'tab1' )">
+                        <a ng-href="{{tabConfig.tab1.csvurl+'?selectedDate='+selectedDate.getTime()}}"  class="btn btn-default btn-sm pull-right" download> download csv</a>
+                        <h3>Tab1 data</h3>
+
+                        <div ng-if="tabConfig.tab1.loading" class="loader-wraper">
+                            <div  class="loader">
+                                Loading
+                            </div>
+                        </div>
+                        <div ng-if="tabConfig.tab1.error" class="error">
+                            <h1>error occured</h1>
+                        </div>
+                        
+                        <table class="table text-center" ng-if="tabConfig.tab1.data">
+                            <thead>
+                                <th>last_close</th>
+                                <th>bid</th>
+                                <th>ask</th>
+                                <th>yearly_taget</th>
+                                <th>beta</th>
+                                <th>earnings_date</th>
+                                <th>days_range </th>
+                                <th>week_range_54</th>
+                                <th>ang_volume_3_months</th>
+                                <th>market_cap</th>
+                                <th>pe</th>
+                                <th>eps</th>
+                                <th>dividend_yeild</th>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in tabConfig.tab1.data">
+                                    <td> {{item.last_close}} </td>
+                                    <td> {{item.bid}} </td>
+                                    <td> {{item.ask}} </td>
+                                    <td> {{item.yearly_taget}} </td>
+                                    <td> {{item.beta}} </td>
+                                    <td> {{item.earnings_date}} </td>
+                                    <td> {{item.days_range}} </td>
+                                    <td> {{item.week_range_54}} </td>
+                                    <td> {{item.ang_volume_3_months}} </td>
+                                    <td> {{item.market_cap}} </td>
+                                    <td> {{item.pe}} </td>
+                                    <td> {{item.eps}} </td>
+                                    <td> {{item.dividend_yeild}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    
+                </uib-tab>
+                <uib-tab heading="Tab2" select="tabSelected( 'tab2' )">
+                        <a ng-href="{{tabConfig.tab2.csvurl+'?selectedDate='+selectedDate.getTime()}}"  class="btn btn-default btn-sm pull-right" download> download csv</a>
+                        <h3>Tab2 data</h3>
+                        <div ng-if="tabConfig.tab2.loading" class="loader-wraper">
+                            <div  class="loader">
+                                Loading
+                            </div>
+                        </div>
+                        <div ng-if="tabConfig.tab2.error" class="error">
+                            <h1>error occured</h1>
+                        </div>
+                       <table class="table text-center" ng-if="tabConfig.tab2.data">
+                            <thead>
+                                <th>exp_date</th>
+                                <th>price</th>
+                                <th>name</th>
+                                <th>last_close</th>
+                                <th>bid</th>
+                                <th>ask</th>
+                                <th>days_range </th>
+                                <th>volume</th>
+                                <th>open_interest</th>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in tabConfig.tab2.data">
+                                    <td> {{item.exp_date}} </td>
+                                    <td> {{item.price}} </td>
+                                    <td> {{item.name}} </td>
+                                    <td> {{item.last_close}} </td>
+                                    <td> {{item.bid}} </td>
+                                    <td> {{item.ask}} </td>
+                                    <td> {{item.days_range}} </td>
+                                    <td> {{item.volume}} </td>
+                                    <td> {{item.open_interest}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    
+                </uib-tab>
+                <uib-tab heading="Tab3" select="tabSelected( 'tab3' )">
+                        <a ng-href="{{tabConfig.tab3.csvurl+'?selectedDate='+selectedDate.getTime()}}"  class="btn btn-default btn-sm pull-right" download> download csv</a>
+                        <h3>Tab3 data</h3>
+                        <div ng-if="tabConfig.tab3.loading" class="loader-wraper">
+                            <div  class="loader">
+                                Loading
+                            </div>
+                        </div>
+                        <div ng-if="tabConfig.tab3.error" class="error">
+                            <h1>error occured</h1>
+                        </div>
+                        <table class="table text-center" ng-if="tabConfig.tab3.data">
+                            <thead>
+                                <th>exp_date</th>
+                                <th>price</th>
+                                <th>name</th>
+                                <th>last_close</th>
+                                <th>bid</th>
+                                <th>ask</th>
+                                <th>days_range </th>
+                                <th>volume</th>
+                                <th>open_interest</th>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in tabConfig.tab3.data">
+                                    <td> {{item.exp_date}} </td>
+                                    <td> {{item.price}} </td>
+                                    <td> {{item.name}} </td>
+                                    <td> {{item.last_close}} </td>
+                                    <td> {{item.bid}} </td>
+                                    <td> {{item.ask}} </td>
+                                    <td> {{item.days_range}} </td>
+                                    <td> {{item.volume}} </td>
+                                    <td> {{item.open_interest}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    
+                    
+                </uib-tab>
+            </uib-tabset>
+
+        </div>
+        <footer>
+            <div class="container text-center">
+                <p>
+                    Data displying is dummy data
+                </p>
+            </div>
+        </footer>
+        <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="./bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+        <script type="text/javascript" src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script type="text/javascript" src="./js/app.js"></script>
+        <script type="text/javascript">
+            angular.bootstrap( document, [ 'App']);
+        </script>
+    </body>
+</html>

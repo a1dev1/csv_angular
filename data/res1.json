@@ -1,0 +1,54 @@
+[
+    {
+        "last_close": 10,
+        "open": 10,
+        "bid": 10, 
+        "ask": 5,
+        "yearly_taget": 10,
+        "beta": "10",
+        "earnings_date": 10,
+        "days_range":  20,
+        "week_range_54" : 10, 
+        "volume": 10, 
+        "ang_volume_3_months": 10 ,
+        "market_cap": 20, 
+        "pe" : 20,
+        "eps" : 20,
+        "dividend_yeild": 10
+    },
+    {
+        "last_close": 100,
+        "open": 100, 
+        "bid": 100, 
+        "ask": 5,
+        "yearly_taget": 100,
+        "beta": "100", 
+        "earnings_date": 100,
+        "days_range":  20,
+        "week_range_54" : 100,
+        "volume": 10, 
+        "ang_volume_3_months": 10 ,
+        "market_cap": 20 ,
+        "pe" : 20,
+        "eps" : 20,
+        "dividend_yeild": 10
+    },
+    {
+        "last_close": 10,
+        "open": 10 ,
+        "bid": 10, 
+        "ask": 15,
+        "yearly_taget": 10,
+        "beta": "10", 
+        "earnings_date": 10,
+        "days_range":  20,
+        "week_range_54" : 10 ,
+        "volume": 10, 
+        "ang_volume_3_months": 10 ,
+        "market_cap": 20 ,
+        "pe" : 20,
+        "eps" : 20,
+        "dividend_yeild": 10
+    }
+
+]

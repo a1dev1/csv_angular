@@ -1,0 +1,37 @@
+
+[
+    {
+        "last_close": 10,
+        "price": 10,
+        "name": "Name of the stock", 
+        "ask": 5,
+        "days_range":  20,
+        "week_range_54" : 10, 
+        "volume": 10, 
+        "open_interest": 10,
+        "exp_date": "1st sep 2016"
+    },
+    {
+        "last_close": 10,
+        "price": 10,
+        "name": "Name of the stock1", 
+        "ask": 5,
+        "days_range":  20,
+        "week_range_54" : 10, 
+        "volume": 10, 
+        "open_interest": 10,
+        "exp_date": "30th Dec 2016"
+    },
+    {
+        "last_close": 10,
+        "price": 10,
+        "name": "Name of the stock2", 
+        "ask": 5,
+        "days_range":  20,
+        "week_range_54" : 10, 
+        "volume": 10, 
+        "open_interest": 10,
+        "exp_date": "12nd Aug 2016"
+    }
+
+]
