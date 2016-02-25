@@ -1,7 +1,7 @@
 var app = angular.module( 'App',[ 'ui.bootstrap'] );
 
 app.controller( 'mainCtrl', function ($scope, $http) {
-    $scope.datepiker = {
+    $scope.datepiker = { 
         opened: false
     };
 
