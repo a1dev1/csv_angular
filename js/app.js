@@ -51,15 +51,15 @@ app.controller( 'mainCtrl', function ($scope, $http) {
     $scope.tabConfig = {
         tab1: {
             jsonurl: './data/res1.json',
-            csvurl: './data/csv1.json',
+            csvurl: './data/res1.csv',
         },
         tab2: {
             jsonurl: './data/res2.json',
-            csvurl: './data/csv2.json',
+            csvurl: './data/res2.csv',
         },
         tab3: {
             jsonurl: './data/res3.json',
-            csvurl: './data/csv3.json',
+            csvurl: './data/res3.csv',
         }
     }
     $scope.tabSelected = function( tabName )  {
